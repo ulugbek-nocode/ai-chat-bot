@@ -10,11 +10,13 @@ from dotenv import load_dotenv
 
 load_dotenv('local.env')
 
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+BOT_TOKEN = str(os.getenv('BOT_TOKEN'))
 
-genai.configure(api_key=os.getenv('GENAI_API_KEY'))
+genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest")
 
-bot = Bot(os.getenv("TELEGRAM_API_KEY"))
+bot = Bot(BOT_TOKEN)
 dp = Dispatcher()
 
 
